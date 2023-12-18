@@ -1,1 +1,1 @@
-# ProgressiveWebApp_TextEditor
+# Progressive Web Application - Text Editor
