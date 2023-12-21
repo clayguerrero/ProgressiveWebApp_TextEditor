@@ -17,30 +17,35 @@ module.exports = () => {
       filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
+    devServer: {
+      hot: "only",
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./index.html",
-        title: "Text Editor",
+        title: "JATE",
       }),
       new WebpackPwaManifest({
+        name: "JATE",
         short_name: "JATE",
-        name: "Text Editor",
-        desciption: "Text Editor",
-        backgroundColor: "#7eb4e2",
-        themeColor: "#7eb4e2",
+        description: "A simple text editor",
+        background_color: "#7eb4e2",
+        theme_color: "#7eb4e2",
         start_url: "./",
         publicPath: "./",
+        fingerprints: false,
+        inject: true,
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
-            sizes: [96, 128, 192, 256],
+            sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join("assets", "icons"),
           },
         ],
       }),
       new InjectManifest({
-        SwSrc: ".src-sw.js",
-        swDest: ".src-sw.js",
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
       }),
     ],
 
@@ -49,6 +54,10 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
         },
         {
           test: /\.m?js$/,
