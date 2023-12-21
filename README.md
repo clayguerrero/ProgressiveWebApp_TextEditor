@@ -4,10 +4,14 @@
 This application is a text editor that runs in the browser. The application may also be installed with the button on the upper left corner and the content will persist.
 
 ## Table of Contents
+- [Deployed](#deployed)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Images](#images)
 - [Questions](#questions)
+
+## Deployed
+[Heroku](https://progressive-web-app-jate-3648271a1eed.herokuapp.com/) 
 
 ## Installation
 
